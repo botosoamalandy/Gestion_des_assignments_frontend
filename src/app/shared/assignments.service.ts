@@ -15,11 +15,8 @@ export class AssignmentsService {
   constructor(private loggingService:LoggingService, private http:HttpClient) { }
 
    uri = "http://localhost:8010/api/assignments";
-  //uri = "https://backtanjonaolivia2021.herokuapp.com/api/assignments"
    uriRendu = "http://localhost:8010/api/assignmentsRendu";
-  //uriRendu = "https://backtanjonaolivia2021.herokuapp.com/api/assignmentsRendu"
   uriNonRendu = "http://localhost:8010/api/assignmentsNonRendu";
-  //uriNonRendu = "https://backtanjonaolivia2021.herokuapp.com/api/assignmentsNonRendu"
 
 
   getAssignments():Observable<Assignment[]> {
