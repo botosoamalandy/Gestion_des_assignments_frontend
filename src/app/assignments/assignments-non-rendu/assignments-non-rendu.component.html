@@ -1,0 +1,111 @@
+<div class="container">
+    <div class = "content-rendu">
+      <div class="pagination">
+        <div class="d-flex justify-content-center">
+          <p class="result">Résultats par page</p>
+            <div class="p-2 bd-highlight">
+                <select (change)="tableData($event)" class="custom-select">
+                  <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                  </option>
+                </select>
+            </div>
+            <div class="pagine">
+              <pagination-controls responsive="true"  previousLabel="<"
+              nextLabel=">" (pageChange)="tabSize($event)"></pagination-controls>
+            </div>            
+        </div>
+      </div>
+
+      <div class="mycard">
+        <mat-divider></mat-divider>
+        <div class="">
+          <div *ngFor="let a of assignmentsRendu | paginate : {
+              itemsPerPage: limit,
+              currentPage: page,
+              totalItems: count
+            };">
+
+
+            <!-- <div class="col-md-3 col-sm-4 col-xs-6">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{a.matiere[0].imageProf}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Titre : {{a.nom}}</h5>
+                  <p>Auteur : {{a.auteur}}</p>
+                  <p>Matière : {{a.matiere[0].matiere}}</p>
+                  <p class="card-text">Remarque : {{a.auteur}}</p>
+                  
+                </div>
+              </div>
+            </div> -->
+            <div class="container_card">
+              <div class="card">
+                  <div class="row container_card">
+                      <div class="col-md-5" style="background: #868e96;">
+                          <img src="{{a.matiere[0].imageProf}}" class="card-img-top h-100" alt="...">
+                      </div>
+                      <div class="col-md-7"  style=" background-color: #191919;color: #fff">
+                          <div class="card-body">
+                              <h5 class="card-title">Titre : {{a.nom}}</h5>
+                              <p>Auteur : {{a.auteur}}</p>
+                              <p>Matière : {{a.matiere[0].matiere}}</p>
+                              <p class="card-text">Remarque : {{a.auteur}}</p>
+                              <div class="row">
+                                <button type="button" class="col-6 btn btn-raised btn-primary" (click)="onClickEdit(a.id)" [disabled]="role_user !== admin">Edit</button>
+                                <button type="button" class="col-6 btn btn-raised btn-danger" (click)="openDialogDelete(a.id)" [disabled]="role_user !== admin">Delete</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+
+
+  <!-- 
+                    <div class="row">
+                      <div class="col-md-5">
+                          <h5>Auteur : {{a.auteur}}</h5>
+                      </div>
+                      <div class="col-md-5">
+                        <h5>Titre : {{a.nom}}</h5>
+                      </div>
+                      <div class="col-md-2">
+                        <h5>Matière : {{a.matiere[0].matiere}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 edit">
+                        <button type="button" class="btn btn-raised btn-primary" (click)="onClickEdit(a.id)" [disabled]="role_user !== admin">Edit</button>
+                      
+                      </div>
+                      <div class="col-md-4">
+                        <button type="button" class="btn btn-raised btn-danger" (click)="openDialogDelete(a.id)">Delete</button>
+                      </div>
+                      </div> -->
+                    <mat-divider></mat-divider>
+          </div>
+        </div>
+      </div>
+        <mat-divider></mat-divider>
+    </div>
+               
+    <div class="pagination">
+      <div class="d-flex justify-content-center">
+        <p class="result">Résultats par page</p>
+          <div class="p-2 bd-highlight">
+              <select (change)="tableData($event)" class="custom-select">
+                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>
+          </div>
+            <div class="pagine">
+              <pagination-controls responsive="true"  previousLabel="<"
+              nextLabel=">" (pageChange)="tabSize($event)"></pagination-controls>
+            </div>
+              
+      </div>
+    </div>
+  </div>

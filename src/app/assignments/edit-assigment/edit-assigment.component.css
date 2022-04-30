@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.field {
+  width: 68rem;
+  margin-left: 8px;
+}
+.inputfield {
+  padding: 0.5rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  width: 64rem;
+  display: block;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid #bdbdbb;
+}
+.btn {
+  margin-bottom: 2%;
+  margin-left: 13px;
+}
+
+.error_edit{
+  color:red;
+  font-style: italic;
+  margin-left: 13px;
+}
+
+.checkrendu{
+  margin-top: 18px;
+  margin-left: 5px;
+}
+
+.titre_list{
+  text-align: center;
+  font-style: italic;
+  font-weight: 800;
+  color: darkslategrey;
+}
+.content_list{
+  border: solid 2px darkslategrey;
+    padding: 2px 2px 2px 2px;
+    border-radius: 4px;
+}
+
+.mat-form-field-wrapper{
+  width: 68rem;
+}
+.labelEdit{
+  margin-top: 16px;
+    margin-left: 12px;
+    font-weight: bold;
+}

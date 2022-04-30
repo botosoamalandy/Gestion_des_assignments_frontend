@@ -1,0 +1,41 @@
+<div class="container" *ngIf="assignmentTransmis">
+    <div class="content_list">
+      <h1 class="titre_list">
+        Assignment : {{assignmentTransmis.nom}}
+      </h1>
+  
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Auteur</td>
+            <td colspan="2">{{assignmentTransmis.auteur}}</td>
+          </tr>
+          <tr>
+            <td>Matière</td>
+            <td style="padding-top: 2%;">{{assignmentTransmis.matiere[0].matiere}}</td>
+            <td style="text-align: right"><img src="{{assignmentTransmis.matiere[0].imageMatiere}}" alt="image_matiere" class="image"></td>
+          </tr>
+          <tr>
+            <td>Prof</td>
+            <td colspan="2" class="text-align-center"><img src="{{assignmentTransmis.matiere[0].imageProf}}" alt="image_prof" class="image"></td>
+          </tr>
+          <tr>
+            <td>Note</td>
+            <td colspan="2">{{assignmentTransmis.note}} / 20</td>
+          </tr>
+          <tr>
+            <td>Date rendu</td>
+            <td colspan="2">{{assignmentTransmis.dateDeRendu}}</td>
+          </tr>
+          <tr>
+            <td>Remarque</td>
+            <td colspan="2">{{assignmentTransmis.remarque}} / 20</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div id="bottom" style="margin : 1%">
+        <button type="button form-control" style="width:100%" class="btn btn-raised btn-danger" (click)="openDialogDelete(assignmentTransmis.id)">Delete</button>
+      </div>
+    </div>
+</div>

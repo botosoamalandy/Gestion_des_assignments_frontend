@@ -1,0 +1,14 @@
+<h1 mat-dialog-title class="title_modal">Profile de l'utilisateur</h1>
+<div mat-dialog-content>
+    <img src="../assets/img/login.png" alt="image" class="img_login">
+  <ul style="text-align: center;list-style-type: none;">
+    <li>
+      <h4 class="pr">{{fullname}} {{user.username}}</h4>
+    </li>
+    <li>
+        <h4 class="pr">{{user.role_user[0].roles_name}}</h4>
+        <h5 *ngIf="user.roles == 1" style="color:green">Toutes les actions sont permises.</h5>
+        <h5 *ngIf="user.roles == 2" style="color:green">La modification et supprission des assignments n'est pas autorisée.</h5>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,49 @@
+<div  class="container">
+    <p>
+        <mat-toolbar>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            </button>
+            <span>Gestion des assignments</span>
+           
+            <div class="list">
+                
+                <button (click)="listAssignment()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <span class="material-icons">
+                        list
+                    </span>
+                    <i>Liste</i>
+                </button>
+                
+              
+                    <button (click)="addAssignment()" mat-icon-button class="example-icon add" aria-label="Example icon-button with menu icon">
+                        <span class="material-icons">
+                            add_circle_outline
+                            </span>
+                            <i>Ajouter</i>
+                    </button>
+              
+            </div>            
+            <span class="example-spacer"></span>
+            <button [matMenuTriggerFor]="profil" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <span class="material-icons">
+                    account_circle
+                </span>
+            </button>
+              <mat-menu #profil="matMenu">
+                
+                    <button mat-menu-item   (click)= "openProfil()">
+                     <span class="profil">{{fullname}}</span>
+                    </button>
+                        
+                    <button mat-menu-item   (click)= "logout()">
+                        <span class="material-icons">
+                            logout
+                        </span>
+                        <span>Logout</span>
+                    </button>
+              </mat-menu>
+        </mat-toolbar>
+      </p>    
+</div>
+  
+  

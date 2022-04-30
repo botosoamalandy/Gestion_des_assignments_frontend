@@ -1,0 +1,22 @@
+<main class="container">
+  <div class="content_list">
+    <h1 class="titre_list">Liste des assignments</h1>
+    <div class="onglet">
+      <nav mat-tab-nav-bar>
+        <a mat-tab-link *ngFor="let link of tabs"
+          [routerLink] = "[link.route]"
+          (click)="activeLink = link.route"
+          
+          [routerLinkActive] = "[link.route]"
+          #rla="routerLinkActive"
+          [active]="activeLink == link.route">
+          <mat-icon>{{link.icon}}</mat-icon>
+            {{link.label}}
+        </a>
+        <p class="info">L'assignment est rendu s'il y a une note ou s'il y a déjà rendu par l' élève.</p>
+      </nav>
+    </div>
+    
+    <router-outlet></router-outlet>
+  </div>
+</main>

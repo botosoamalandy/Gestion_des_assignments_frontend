@@ -1,0 +1,84 @@
+<div class="container">
+    <div class = "content-rendu">
+      <div class="pagination">
+        <div class="d-flex justify-content-center">
+          <p class="result">Résultats par page</p>
+            <div class="p-2 bd-highlight">
+                <select (change)="tableData($event)" class="custom-select">
+                  <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                  </option>
+                </select>
+            </div>
+            <div class="pagine">
+              <pagination-controls responsive="true"  previousLabel="<"
+              nextLabel=">" (pageChange)="tabSize($event)"></pagination-controls>
+            </div>            
+        </div>
+      </div>
+    
+          <!--<nav>
+            <a routerLink="/assignment/{{a.id}}">-->
+            <div class="mycard">
+              
+              <mat-card *ngFor="let a of assignmentsRendu | paginate : {
+                itemsPerPage: limit,
+                currentPage: page,
+                totalItems: count
+              };">
+              <div class="row">
+                <div class="col-md-9">
+                    <mat-card-header>
+                        <mat-card-subtitle>
+                          <h4 mat-subheader class="subtitle">
+                            <a routerLink="/assignment/{{a.id}}" class="title">
+                              Titre : {{a.nom}}
+                            </a>
+                          </h4>
+                          <p>Auteur : {{a.auteur}}</p>
+                        </mat-card-subtitle> 
+                        <mat-card-title class="rendule">
+                          Rendu le {{a.dateDeRendu}}
+                      </mat-card-title>
+                    </mat-card-header>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="container_image"><img src="{{a.matiere[0].imageMatiere}}" alt="image_matiere" class="image_prof"></div>
+                    <div class="container_text">{{a.matiere[0].matiere}}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <mat-card-actions>     
+                      <a routerLink="/assignment/{{a.id}}">
+                        <mat-icon class="action">visibility</mat-icon>
+                      </a>
+                      <a (click)="openDialogDelete(a.id)">
+                        <mat-icon class="action_delete">delete</mat-icon>
+                      </a>
+                    </mat-card-actions>
+                  </div>
+                  <div class="col-md-3"> <img src="{{a.matiere[0].imageProf}}" alt="image_prof" class="image_matiere"></div>
+                </div>
+            </mat-card>
+          </div>
+    
+          <div class="pagination">
+            <div class="d-flex justify-content-center">
+              <p class="result">Résultats par page</p>
+                <div class="p-2 bd-highlight">
+                    <select (change)="tableData($event)" class="custom-select">
+                      <option *ngFor="let size of tableSizes" [ngValue]="size">
+                        {{ size }}
+                      </option>
+                    </select>
+                </div>
+                  <div class="pagine">
+                    <pagination-controls responsive="true"  previousLabel="<"
+                    nextLabel=">" (pageChange)="tabSize($event)"></pagination-controls>
+                  </div>
+                    
+            </div>
+          </div>
+    </div>
+  </div>

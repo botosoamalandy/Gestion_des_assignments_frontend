@@ -1,0 +1,58 @@
+<title>{{title}}</title>
+<div class="background-wrap">
+    <div class="background"></div>
+</div>
+  <!-- navigation -->
+  <div class="container_title">
+        <h1 id="litheader">Gestion des assignments</h1>
+        <h1 id="litheader">
+            <ul class="litheader_ul">
+                <li [ngClass]="{'litheader_ul_li': tabStepper==true,'litheader_ul_li2': tabStepper==false }" (click)="changerTabStepper(false)">Connexion</li>
+                <li [ngClass]="{'litheader_ul_li': tabStepper==false,'litheader_ul_li2': tabStepper==true }" (click)="changerTabStepper(true)">Inscription</li>
+            </ul>
+        </h1>
+    </div>
+  <!-- connexion -->
+  <form class="formConnexion" id="accesspanel" [formGroup]="loginForm" (submit)="authentification()" method="post" [hidden]="tabStepper" >
+    <div class="inset">
+      <p><input type="text" formControlName="username" name="Username" id="email" placeholder="Nom d'utilisation"></p>
+      <div class="messageerreur" *ngIf="loginForm.get('username').dirty && loginForm.get('username').touched && loginForm.controls.username.errors?.required">Nom obligatoire</div>
+      <p><input type="password" formControlName="password" name ="Password" id="password" placeholder="Votre mot de passe"></p>
+      <div class="messageerreur" *ngIf="loginForm.get('username').dirty && loginForm.get('password').touched && loginForm.controls.password.errors?.required">Mot de passe obligatoire</div>
+      <div class="messageerreur" *ngIf="loginForm.get('username').dirty && loginForm.get('password').touched && loginForm.controls.password.errors?.minlength">Le mot de passe doit comporté {{minLength}} caractère minimum </div>
+    </div>
+    <p class="p-container">
+      <input type="submit" [disabled]="!loginForm.valid" name="Login" id="go" value="Se connecter">
+    </p>
+    <div class="messageerreur" *ngIf="invalid_login">Nom d'utilisation ou mot de passe invalide</div>
+  </form>  
+    <!-- inscription -->
+  <form id="accesspanel" [formGroup]="signUpForm" class="form formInscription" (submit)="register()" method="post" [hidden]="!tabStepper">
+    <div class="inset">
+      <!-- username -->
+      <p><input type="text" formControlName="usernameUp" name="usernameUp" id="email" placeholder="Nom d'utilisation"></p>
+      <div class="messageerreur" *ngIf="signUpForm.get('usernameUp').dirty && signUpForm.get('usernameUp').touched && signUpForm.controls.usernameUp.errors?.required">Nom obligatoire</div>
+      <!-- fullname -->
+      <p><input type="text" formControlName = "fullname" name="fullname" id="email" placeholder="Nom de famille"></p>
+      <div class="messageerreur" *ngIf="signUpForm.get('fullname').dirty && signUpForm.get('fullname').touched && signUpForm.controls.fullname.errors?.required">Nom de famille obligatoire</div> 
+      <!-- password -->
+      <p><input type="password" formControlName = "passwordUp" name="passwordUp" id="email" placeholder="Mot de passe"></p>
+      <div class="messageerreur" *ngIf="signUpForm.get('passwordUp').dirty && signUpForm.get('passwordUp').touched && signUpForm.controls.passwordUp.errors?.required">Mot de passe obligatoire</div>
+      <div class="messageerreur" *ngIf="signUpForm.get('passwordUp').dirty && signUpForm.get('passwordUp').touched && signUpForm.controls.passwordUp.errors?.minlength">Le mot de passe doit comporté {{minLength}} caractère minimum</div>
+      <!-- confirmation -->
+      <p><input type="password" formControlName = "repassword" name ="repassword" id="password" placeholder="Confirmation mot de passe"></p>
+      <div class="messageerreur" *ngIf="signUpForm.get('repassword').dirty && signUpForm.get('repassword').touched && signUpForm.controls.repassword.errors?.required">Confirmation mot de passe obligatoire</div>
+      <div class="messageerreur" *ngIf="signUpForm.get('repassword').dirty && signUpForm.get('repassword').touched && signUpForm.controls.repassword.hasError('notSame')">Confirmation mot de passe invalide</div>
+      <!-- confirmation -->
+      <select formControlName="role" name="role" class="selectRoles">
+        <option *ngFor="let role of listRoles" [value]="role.id" class="select_roles" [hidden]="role.id==1">
+            {{role.roles_name}}
+        </option>
+      </select>
+    </div>
+    <p class="p-container">
+      <input type="submit" [disabled]="!signUpForm.valid" name="inscription" id="go" value="S'inscrir">
+    </p>
+    <div class="messageerreur" *ngIf="invalid_register">{{invalid_register_msg}}</div>
+    <div class="messagevalider"*ngIf="valid_register">{{valid_register_msg}}</div>
+  </form>
