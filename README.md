@@ -37,5 +37,12 @@
 
 		* jointure : https://docs.mongodb.com/manual/core/aggregation-pipeline-optimization/
 		* dialogConfirmation : https://stackblitz.com/edit/mat-dialog-example-delete-confirm-4ygtyz?file=app%2Fconfirmation-dialog.component.ts
+    
+    Compte admnistrateur :
+    * nom utilisateur : Boto
+    * mot de passe : Malandy01#
+    Compte etudiant :
+    * nom utilisateur : botosoamalandy
+    * mot de passe : Malandy01#
 
 	
